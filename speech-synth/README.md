@@ -4,6 +4,8 @@
 
 Open config.php and replace the credentials (key and secret) with your own AWS secret access keys.
 
+Install AWS dependencies: `php composer.phar install`
+
 ## Generate speech
 
 `$ php -f speech-synth.php`
