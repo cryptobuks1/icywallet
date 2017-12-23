@@ -24,13 +24,34 @@ key_w	w	<prosody rate="300%">w</prosody>
 key_x	x	<prosody rate="300%">x</prosody>
 key_y	y	<prosody rate="300%">y</prosody>
 key_z	z	<prosody rate="300%">z</prosody>
-key_space	space	<prosody rate="300%">space</prosody>
 key_backtick	backtick	<prosody rate="300%">backtick</prosody>
+key_1	key_1	<prosody rate="300%">1</prosody>
+key_2	key_2	<prosody rate="300%">2</prosody>
+key_3	key_3	<prosody rate="300%">3</prosody>
+key_4	key_4	<prosody rate="300%">4</prosody>
+key_5	key_5	<prosody rate="300%">5</prosody>
+key_6	key_6	<prosody rate="300%">6</prosody>
+key_7	key_7	<prosody rate="300%">7</prosody>
+key_8	key_8	<prosody rate="300%">8</prosody>
+key_9	key_9	<prosody rate="300%">9</prosody>
+key_0	key_0	<prosody rate="300%">0</prosody>
 key_tilde	tilde	<prosody rate="300%">tilde</prosody>
+key_exclamation	key_exclamation	<prosody rate="300%">exclamation point</prosody>
+key_at	key_at	<prosody rate="300%">at sign</prosody>
+key_hash	key_hash	<prosody rate="300%">hash</prosody>
+key_dollar	key_dollar	<prosody rate="300%">dollar sign</prosody>
+key_percent	key_percent	<prosody rate="300%">percent</prosody>
+key_caret	key_caret	<prosody rate="300%">caret</prosody>
+key_ampersand	key_ampersand	<prosody rate="300%">ampersand</prosody>
+key_asterisk	key_asterisk	<prosody rate="300%">asterisk</prosody>
+key_parensopen	key_parensopen	<prosody rate="300%">open parentheses</prosody>
+key_parensclose	key_parensclose	<prosody rate="300%">close parentheses</prosody>
+key_space	space	<prosody rate="300%">space</prosody>
 unknown	Unknown command. Type HELP for more information.	
 welcome	Welcome to IcyWallet.	
 main_prompt	Type HELP for more information, or enter a command.	
 new_wallet	In order to create a new wallet, you'll need to write down twelve words. These words are the seed for your wallet, and they serve as its only backup. It's important for you to capture them accurately. The words will be given one at a time and spelled out, since there are some homophones. After you capture the seed, you’ll need to re-enter the words to confirm you’ve stored the seed correctly. Since the seed allows anyone to take full control of your coins, please take precautions while capturing it. Be sure to use headphones, and confirm that no one is looking over your shoulder. Your seed should be stored completely offline. You can use a brailler or a slate and stylus to put it on paper. To start the process, type START and press enter.	
+confirm_seed	Now you will type each seed word to confirm that you captured them correctly. When ready to begin, type START.	
 seed_1	The first word is: 	
 seed_2	The second word is: 	
 seed_3	The third word is: 	
@@ -44,3 +65,19 @@ seed_10	The tenth word is:
 seed_11	The eleventh word is: 	
 seed_12	The twelfth word is: 	
 seed_prompt	To continue to the next word, type NEXT. Press ENTER by itself to repeat.	
+seed_prompt_last	To confirm your seed, type NEXT. Press ENTER by itself to repeat.	
+shutdown	Thanks for using IcyWallet. You can safely power off the device after 15 seconds.	
+error	An error has occurred and IcyWallet will now stop.	
+help_main	You are at the main menu. Available commands are: NEW, and SHUTDOWN.	
+seed_1_confirm	Please type the first word.	
+seed_2_confirm	Please type the second word.	
+seed_3_confirm	Please type the third word.	
+seed_4_confirm	Please type the fourth word.	
+seed_5_confirm	Please type the fifth word.	
+seed_6_confirm	Please type the sixth word.	
+seed_7_confirm	Please type the seventh word.	
+seed_8_confirm	Please type the eighth word.	
+seed_9_confirm	Please type the ninth word.	
+seed_10_confirm	Please type the tenth word.	
+seed_11_confirm	Please type the eleventh word.	
+seed_12_confirm	Please type the twelfth word.	
