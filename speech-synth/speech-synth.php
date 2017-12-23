@@ -39,6 +39,14 @@ foreach($process as $lang) {
 }
 
 function speech_synth($config, $lang, $label, $ssml, $rate) {
+	
+	if(missing_only) {
+		if(file_exists('../speech/'.$lang.'/'.$lang.'_'.$label.'_'.$rate.'.mp3')) {
+			echo "\n - Skipping existing file.";
+			return false;
+		}
+	}
+	
 	$original = $input;
 	$spelled = str_split($original);
 	$spelled = implode(', ', $spelled);
