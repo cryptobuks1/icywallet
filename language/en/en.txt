@@ -81,3 +81,5 @@ seed_9_confirm	Please type the ninth word.
 seed_10_confirm	Please type the tenth word.	
 seed_11_confirm	Please type the eleventh word.	
 seed_12_confirm	Please type the twelfth word.	
+seed_confirm_correct	Great, that word matched.	
+seed_confirm_incorrect	That word didn’t match.	
