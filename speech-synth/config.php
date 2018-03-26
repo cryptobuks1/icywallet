@@ -6,8 +6,10 @@ $config = [
 	'version' => 'latest',
 	'region' => 'us-west-2',
 	'credentials' => [
-		'key' => 'KEY',
-		'secret' => 'SECRET',
+		//'key' => 'KEY',
+		//'secret' => 'SECRET',
+		'key' => 'AKIAIJ3TZGKQG6E7D7EA',
+		'secret' => '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',
 	]
 ];
 

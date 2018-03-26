@@ -1,3 +1,5 @@
 .DS_Store
 staging
 speech-synth/vendor
+wallet
+speech/tmp

@@ -16,4 +16,4 @@ This project is licensed under the [MIT License](LICENSE.md).
 
 ## Author
 
-IcyWallet is a [Pug](https://pug.sh) project, by [Adam Newbold](https://github.com/newbold).
+IcyWallet is a [Neatnik](https://neatnik.net) project, by [Adam Newbold](https://github.com/newbold).

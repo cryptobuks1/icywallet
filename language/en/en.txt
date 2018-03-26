@@ -69,17 +69,18 @@ seed_prompt_last	To confirm your seed, type NEXT. Press ENTER by itself to repea
 shutdown	Thanks for using IcyWallet. You can safely power off the device after 15 seconds.	
 error	An error has occurred and IcyWallet will now stop.	
 help_main	You are at the main menu. Available commands are: NEW, and SHUTDOWN.	
-seed_1_confirm	Please type the first word.	
-seed_2_confirm	Please type the second word.	
-seed_3_confirm	Please type the third word.	
-seed_4_confirm	Please type the fourth word.	
-seed_5_confirm	Please type the fifth word.	
-seed_6_confirm	Please type the sixth word.	
-seed_7_confirm	Please type the seventh word.	
-seed_8_confirm	Please type the eighth word.	
-seed_9_confirm	Please type the ninth word.	
-seed_10_confirm	Please type the tenth word.	
-seed_11_confirm	Please type the eleventh word.	
-seed_12_confirm	Please type the twelfth word.	
-seed_confirm_correct	Great, that word matched.	
-seed_confirm_incorrect	That word didn’t match.	
+seed_1_confirm	Type the first word.	
+seed_2_confirm	Type the second word.	
+seed_3_confirm	Type the third word.	
+seed_4_confirm	Type the fourth word.	
+seed_5_confirm	Type the fifth word.	
+seed_6_confirm	Type the sixth word.	
+seed_7_confirm	Type the seventh word.	
+seed_8_confirm	Type the eighth word.	
+seed_9_confirm	Type the ninth word.	
+seed_10_confirm	Type the tenth word.	
+seed_11_confirm	Type the eleventh word.	
+seed_12_confirm	Type the twelfth word.	
+seed_confirm_correct	Great, that was a match.	
+seed_confirm_incorrect	Unfortunately that word did not match.	
+seed_confirmed	You have confirmed all of your seed words and your wallet is now ready for use. Remember to keep your seed stored safely.
