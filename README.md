@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/pugsh/IcyWallet.svg?branch=master)](https://travis-ci.org/pugsh/IcyWallet) [![Dependencies Status](https://david-dm.org/pugsh/icywallet/status.svg)](https://david-dm.org/pugsh/icywallet) [![Known Vulnerabilities](https://snyk.io/test/github/pugsh/icywallet/badge.svg)](https://snyk.io/test/github/pugsh/icywallet)
+[![Build Status](https://travis-ci.org/neatnik/IcyWallet.svg?branch=master)](https://travis-ci.org/neatnik/IcyWallet) [![Dependencies Status](https://david-dm.org/neatnik/icywallet/status.svg)](https://david-dm.org/neatnik/icywallet) [![Known Vulnerabilities](https://snyk.io/test/github/neatnik/icywallet/badge.svg)](https://snyk.io/test/github/neatnik/icywallet)
 
 # IcyWallet
 
