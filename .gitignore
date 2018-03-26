@@ -1,4 +1,5 @@
 .DS_Store
+node_modules
 staging
 speech-synth/vendor
 wallet
