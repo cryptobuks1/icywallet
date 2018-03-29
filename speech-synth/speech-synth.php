@@ -5,13 +5,27 @@ use Aws\Polly\PollyClient;
 
 include('config.php');
 
-echo "\nStarting speech synthesis.";
+
+echo "\Processing arguments.";
+
+// check cli args
+$force = array();
+foreach($argv as $arg) {
+	if(substr($arg, 0, 6) == 'force=') {
+		$arg = substr($arg, 6);
+		$force = explode(',', $arg);
+	}
+}
+
+echo "\Preparing languages.";
 
 // get all languages
 $languages = glob("../language/*");
 foreach($languages as $language) {
 	$process[] = str_replace('../language/', '', $language);
 }
+
+echo "\nStarting speech synthesis.";
 
 // process all languages
 foreach($process as $lang) {
@@ -40,7 +54,17 @@ foreach($process as $lang) {
 
 function speech_synth($config, $lang, $label, $ssml, $rate) {
 	
-	if(missing_only) {
+	global $force;
+	
+	if($label == 'greeting') {
+		echo "\n - Skipping greeting.";
+		return false;
+	}
+	
+	if(in_array($label, $force)) {
+		// Process the forced items from cli arg
+	}
+	else if(missing_only) {
 		if(file_exists('../speech/'.$lang.'/'.$lang.'_'.$label.'_'.$rate.'.mp3')) {
 			echo "\n - Skipping existing file.";
 			return false;
