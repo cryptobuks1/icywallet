@@ -2,8 +2,8 @@
 
 IcyWallet is being re-engineered with a focus on security and stability. Watch this space for details.
 
-[![Build Status](https://travis-ci.org/neatnik/IcyWallet.svg?branch=master)](https://travis-ci.org/neatnik/icywallet)
-[![Known Vulnerabilities](https://snyk.io/test/github/neatnik/icywallet/badge.svg)](https://snyk.io/test/github/neatnik/icywallet)
+<!--[![Build Status](https://travis-ci.org/neatnik/IcyWallet.svg?branch=master)](https://travis-ci.org/neatnik/icywallet)
+[![Known Vulnerabilities](https://snyk.io/test/github/neatnik/icywallet/badge.svg)](https://snyk.io/test/github/neatnik/icywallet)-->
 
 # IcyWallet
 
