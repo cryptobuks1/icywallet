@@ -4,3 +4,4 @@ staging
 speech-synth/vendor
 wallet
 speech/tmp/*
+composer.phar
