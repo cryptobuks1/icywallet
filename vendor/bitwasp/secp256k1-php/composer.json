@@ -1,0 +1,19 @@
+{
+    "name": "bitwasp/secp256k1-php",
+    "description": "PHP Extension with bindings for bitcoin/secp256k1.",
+    "keywords": ["bitwasp", "bitcoin", "php", "secp256k1", "ecc", "ecdsa", "cryptocurrency", "extension"],
+    "authors": [
+        {
+            "name": "Ruben de Vries",
+            "email": "ruben@rubensayshi.com"
+        },
+        {
+            "name": "Thomas Kerin",
+            "email": "afk11@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0"
+    },
+    "license": "Unlicense"
+}
