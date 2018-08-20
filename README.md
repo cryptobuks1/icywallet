@@ -1,13 +1,6 @@
-### July 31, 2018 Update
-
-IcyWallet is being re-engineered with a focus on security and stability. Watch this space for details.
-
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/neatnik/icywallet/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/neatnik/icywallet/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/neatnik/icywallet/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/neatnik/icywallet/?branch=master)
-
 # IcyWallet
 
-_Accessible Bitcoin cold storage_
+_Accessible and secure Bitcoin cold storage_
 
 IcyWallet is a Bitcoin cold storage wallet that doesn’t require sight. It aims to be the simplest and most secure Bitcoin cold storage solution with a total emphasis on accessibility. Just plug in headphones and a keyboard, or a refreshable braille display, and get going.
 
