@@ -1,11 +1,13 @@
 --TEST--
-secp256k1_ec_privkey_tweak_mul type hints coerce to string if possible, size check
+secp256k1_ec_privkey_tweak_mul returns false if modified parameter is not a string
 --SKIPIF--
 <?php
 if (!extension_loaded("secp256k1")) print "skip extension not loaded";
 ?>
 --FILE--
 <?php
+
+set_error_handler(function($code, $str) { echo $str . PHP_EOL; });
 
 $context = secp256k1_context_create(SECP256K1_CONTEXT_SIGN | SECP256K1_CONTEXT_VERIFY);
 
@@ -20,4 +22,4 @@ try {
 
 ?>
 --EXPECT--
-secp256k1_ec_privkey_tweak_mul(): Parameter 2 should be 32 bytes
+secp256k1_ec_privkey_tweak_mul(): Parameter 2 should be string

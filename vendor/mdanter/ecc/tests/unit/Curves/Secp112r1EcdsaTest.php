@@ -1,9 +1,8 @@
 <?php
-declare(strict_types=1);
 
 namespace Mdanter\Ecc\Tests\Curves;
 
-use Mdanter\Ecc\Crypto\Signature\SignHasher;
+
 use Mdanter\Ecc\Tests\AbstractTestCase;
 
 class Secp112r1EcdsaTest extends AbstractTestCase
@@ -22,8 +21,7 @@ class Secp112r1EcdsaTest extends AbstractTestCase
 
         $data = "foobar";
         $signer = new \Mdanter\Ecc\Crypto\Signature\Signer($adapter);
-        $hasher = new SignHasher("sha1");
-        $hash = $hasher->makeHash($data, $g);
+        $hash = $signer->hashData($g, "sha1", $data);
         $randomK = gmp_init('12345', 10);
 
         $signature = $signer->sign($priv, $hash, $randomK);

@@ -22,10 +22,12 @@ echo $result . PHP_EOL;
 $pubKey = tmpfile();
 
 $result = secp256k1_ecdsa_verify($ctx, $sig, $msg32, $pubKey);
-echo $result . PHP_EOL;
+echo gettype($result) . PHP_EOL;
+echo ($result ? "true" : "false") . PHP_EOL;
 
 ?>
 --EXPECT--
 1
 secp256k1_ecdsa_verify(): supplied resource is not a valid secp256k1_pubkey resource
-0
+boolean
+false

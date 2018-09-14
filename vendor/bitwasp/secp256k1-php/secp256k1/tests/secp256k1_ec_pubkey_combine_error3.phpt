@@ -15,9 +15,11 @@ $pubKeys = [tmpfile()];
 
 $combinedPubKey = null;
 $result = secp256k1_ec_pubkey_combine($ctx, $combinedPubKey, $pubKeys);
-echo $result . PHP_EOL;
+echo gettype($result) . PHP_EOL;
+echo ($result ? "true" : "false") . PHP_EOL;
 
 ?>
 --EXPECT--
 secp256k1_ec_pubkey_combine(): supplied resource is not a valid secp256k1_pubkey resource
-0
+boolean
+false

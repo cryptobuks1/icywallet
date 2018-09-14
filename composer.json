@@ -1,43 +1,5 @@
 {
-  "name": "bitwasp/bitcoin",
-  "description": "PHP Bitcoin library with functions for transactions, signatures, serialization, Random/Deterministic ECDSA keys, blocks, RPC bindings",
-  "type": "library",
-  "homepage": "https://github.com/bit-wasp/bitcoin-php",
-  "license": "Unlicense",
-  "authors": [
-    {
-      "name": "Thomas Kerin",
-      "homepage": "https://thomaskerin.io",
-      "role": "Author"
+    "require": {
+        "bitwasp/bitcoin": "v0.0.35.1"
     }
-  ],
-  "autoload": {
-    "psr-4": {
-      "BitWasp\\Bitcoin\\": "src/"
-    },
-    "files": ["src/Script/functions.php"]
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "BitWasp\\Bitcoin\\Tests\\": "tests/"
-    }
-  },
-  "require": {
-    "php-64bit": ">=7.0",
-    "paragonie/random_compat": "^1.4.0|^2.0.0",
-    "pleonasm/merkle-tree": "1.0.0",
-    "composer/semver": "^1.4.0",
-    "lastguest/murmurhash": "v2.0.0",
-    "mdanter/ecc": "^0.5.0",
-    "bitwasp/buffertools": "^0.5.0",
-    "bitwasp/secp256k1-php": "^0.2.0",
-    "bitwasp/bech32": "^0.0.1"
-  },
-  "require-dev": {
-    "ext-json": "*",
-    "phpunit/phpunit": "^5.4.0",
-    "squizlabs/php_codesniffer": "^2.0.0",
-    "nbobtc/bitcoind-php": "v2.0.2",
-    "bitwasp/bitcoinconsensus": "v3.0.0"
-  }
 }

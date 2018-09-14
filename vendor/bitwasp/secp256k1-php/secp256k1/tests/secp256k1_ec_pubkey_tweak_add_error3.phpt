@@ -22,10 +22,12 @@ echo $result . PHP_EOL;
 
 $badCtx = tmpfile();
 $result = secp256k1_ec_pubkey_tweak_add($badCtx, $pubKey, $secKeyTwo);
-echo $result . PHP_EOL;
+echo gettype($result) . PHP_EOL;
+echo ($result ? "true" : "false") . PHP_EOL;
 
 ?>
 --EXPECT--
 1
 secp256k1_ec_pubkey_tweak_add(): supplied resource is not a valid secp256k1_context resource
-0
+boolean
+false

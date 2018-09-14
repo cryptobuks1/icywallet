@@ -18,10 +18,12 @@ echo $result . PHP_EOL;
 $badSig = tmpfile();
 $sigOut = null;
 $result = secp256k1_ecdsa_signature_serialize_compact($ctx, $sigOut, $badSig);
-echo $result . PHP_EOL;
+echo gettype($result) . PHP_EOL;
+echo ($result ? "true" : "false") . PHP_EOL;
 
 ?>
 --EXPECT--
 1
 secp256k1_ecdsa_signature_serialize_compact(): supplied resource is not a valid secp256k1_ecdsa_signature resource
-0
+boolean
+false

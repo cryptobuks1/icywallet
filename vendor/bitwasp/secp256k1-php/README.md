@@ -1,7 +1,6 @@
 # secp256k1-php
 
 [![Build Status](https://travis-ci.org/Bit-Wasp/secp256k1-php.svg?branch=master)](https://travis-ci.org/Bit-Wasp/secp256k1-php)
-[![codecov](https://codecov.io/gh/Bit-Wasp/secp256k1-php/branch/master/graph/badge.svg)](https://codecov.io/gh/Bit-Wasp/secp256k1-php)
 
 PHP bindings for https://github.com/bitcoin-core/secp256k1
 
@@ -37,11 +36,11 @@ libsecp256k1:
 secp256k1-php:
 ```
     git clone git@github.com:Bit-Wasp/secp256k1-php && \
-    cd secp256k1-php/secp256k1 &&                      \
+    cd secp256k1-php &&                                \
     phpize &&                                          \ 
     ./configure --with-secp256k1 &&                    \  
     make && sudo make install &&                       \
-    cd ../../
+    cd ../
 ```
 
 ### Examples

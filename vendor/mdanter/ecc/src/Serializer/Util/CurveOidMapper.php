@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 namespace Mdanter\Ecc\Serializer\Util;
 
@@ -9,7 +8,6 @@ use Mdanter\Ecc\Curves\CurveFactory;
 use Mdanter\Ecc\Curves\NistCurve;
 use Mdanter\Ecc\Curves\SecgCurve;
 use Mdanter\Ecc\Primitives\CurveFpInterface;
-use Mdanter\Ecc\Primitives\GeneratorPoint;
 
 class CurveOidMapper
 {
@@ -69,16 +67,16 @@ class CurveOidMapper
     /**
      * @return array
      */
-    public static function getNames(): array
+    public static function getNames()
     {
         return array_keys(self::$oidMap);
     }
 
     /**
      * @param CurveFpInterface $curve
-     * @return int
+     * @return mixed
      */
-    public static function getByteSize(CurveFpInterface $curve): int
+    public static function getByteSize(CurveFpInterface $curve)
     {
         if ($curve instanceof NamedCurveFp && array_key_exists($curve->getName(), self::$sizeMap)) {
             return self::$sizeMap[$curve->getName()];
@@ -91,7 +89,7 @@ class CurveOidMapper
      * @param NamedCurveFp $curve
      * @return ObjectIdentifier
      */
-    public static function getCurveOid(NamedCurveFp $curve): ObjectIdentifier
+    public static function getCurveOid(NamedCurveFp $curve)
     {
         if (array_key_exists($curve->getName(), self::$oidMap)) {
             $oidString = self::$oidMap[$curve->getName()];
@@ -104,9 +102,9 @@ class CurveOidMapper
 
     /**
      * @param ObjectIdentifier $oid
-     * @return NamedCurveFp
+     * @return \Mdanter\Ecc\Primitives\GeneratorPoint
      */
-    public static function getCurveFromOid(ObjectIdentifier $oid): NamedCurveFp
+    public static function getCurveFromOid(ObjectIdentifier $oid)
     {
         $oidString = $oid->getContent();
         $invertedMap = array_flip(self::$oidMap);
@@ -120,9 +118,9 @@ class CurveOidMapper
 
     /**
      * @param ObjectIdentifier $oid
-     * @return GeneratorPoint
+     * @return \Mdanter\Ecc\Primitives\GeneratorPoint
      */
-    public static function getGeneratorFromOid(ObjectIdentifier $oid): GeneratorPoint
+    public static function getGeneratorFromOid(ObjectIdentifier $oid)
     {
         $oidString = $oid->getContent();
         $invertedMap = array_flip(self::$oidMap);

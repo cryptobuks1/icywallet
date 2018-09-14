@@ -19,11 +19,13 @@ echo get_resource_type($secp256k1Sig) . PHP_EOL;
 $ctxBad = tmpfile();
 $sigOut = null;
 $result = secp256k1_ecdsa_signature_serialize_der($ctxBad, $sigOut, $secp256k1Sig);
-echo $result . PHP_EOL;
+echo gettype($result) . PHP_EOL;
+echo ($result ? "true" : "false") . PHP_EOL;
 
 ?>
 --EXPECT--
 1
 secp256k1_ecdsa_signature
 secp256k1_ecdsa_signature_serialize_der(): supplied resource is not a valid secp256k1_context resource
-0
+boolean
+false

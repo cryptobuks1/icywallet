@@ -1,13 +1,12 @@
 <?php
 
-declare(strict_types=1);
-
 namespace BitWasp\Buffertools\Types;
 
 use BitWasp\Buffertools\Buffer;
 use BitWasp\Buffertools\BufferInterface;
 use BitWasp\Buffertools\ByteOrder;
 use BitWasp\Buffertools\Parser;
+use Mdanter\Ecc\Math\GmpMathInterface;
 
 class ByteString extends AbstractType
 {
@@ -17,23 +16,24 @@ class ByteString extends AbstractType
     private $length;
 
     /**
-     * @param int           $length
-     * @param int           $byteOrder
+     * @param GmpMathInterface     $math
+     * @param int|string           $length
+     * @param int|string           $byteOrder
      */
-    public function __construct(int $length, int $byteOrder = ByteOrder::BE)
+    public function __construct(GmpMathInterface $math, $length, $byteOrder = ByteOrder::BE)
     {
         $this->length = $length;
-        parent::__construct($byteOrder);
+        parent::__construct($math, $byteOrder);
     }
 
     /**
      * @param BufferInterface $string
      * @return string
      */
-    public function writeBits(BufferInterface $string): string
+    public function writeBits(BufferInterface $string)
     {
         $bits = str_pad(
-            gmp_strval(gmp_init($string->getHex(), 16), 2),
+            $this->getMath()->baseConvert($string->getHex(), 16, 2),
             $this->length * 8,
             '0',
             STR_PAD_LEFT
@@ -43,13 +43,13 @@ class ByteString extends AbstractType
     }
 
     /**
-     * @param Buffer $string
+     * @param $string
      * @return string
      * @throws \Exception
      */
-    public function write($string): string
+    public function write($string)
     {
-        if (!($string instanceof Buffer)) {
+        if (false === $string instanceof Buffer) {
             throw new \InvalidArgumentException('FixedLengthString::write() must be passed a Buffer');
         }
 
@@ -58,7 +58,7 @@ class ByteString extends AbstractType
             : $this->flipBits($this->writeBits($string));
 
         $hex = str_pad(
-            gmp_strval(gmp_init($bits, 2), 16),
+            $this->getMath()->baseConvert($bits, 2, 16),
             $this->length * 2,
             '0',
             STR_PAD_LEFT
@@ -71,10 +71,10 @@ class ByteString extends AbstractType
      * @param BufferInterface $buffer
      * @return string
      */
-    public function readBits(BufferInterface $buffer): string
+    public function readBits(BufferInterface $buffer)
     {
         return str_pad(
-            gmp_strval(gmp_init($buffer->getHex(), 16), 2),
+            $this->getMath()->baseConvert($buffer->getHex(), 16, 2),
             $this->length * 8,
             '0',
             STR_PAD_LEFT
@@ -83,10 +83,10 @@ class ByteString extends AbstractType
 
     /**
      * @param Parser $parser
-     * @return BufferInterface
+     * @return Buffer
      * @throws \BitWasp\Buffertools\Exceptions\ParserOutOfRange
      */
-    public function read(Parser $parser): BufferInterface
+    public function read(Parser $parser)
     {
         $bits = $this->readBits($parser->readBytes($this->length));
         if (!$this->isBigEndian()) {
@@ -95,12 +95,13 @@ class ByteString extends AbstractType
 
         return Buffer::hex(
             str_pad(
-                gmp_strval(gmp_init($bits, 2), 16),
+                $this->getMath()->baseConvert($bits, 2, 16),
                 $this->length * 2,
                 '0',
                 STR_PAD_LEFT
             ),
-            $this->length
+            $this->length,
+            $this->getMath()
         );
     }
 }

@@ -18,7 +18,7 @@ $result = secp256k1_ecdsa_recoverable_signature_parse_compact($context, $signatu
 echo $result . PHP_EOL;
 
 $sigOut = '';
-$result = secp256k1_ecdsa_recoverable_signature_serialize_compact($context, $sigOut, $recid, $signature);
+$result = secp256k1_ecdsa_recoverable_signature_serialize_compact($context, $signature, $sigOut, $recid);
 echo $result . PHP_EOL;
 echo unpack("H*", $sigOut)[1] . PHP_EOL;
 

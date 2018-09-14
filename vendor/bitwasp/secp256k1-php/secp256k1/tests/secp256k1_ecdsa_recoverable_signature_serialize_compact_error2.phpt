@@ -17,10 +17,10 @@ $sigIn = pack("H*", 'fe5fe404f3d8c21e1204a08c38ff3912d43c5a22541d2f1cdc4977cbcad
 $signature = tmpfile();
 
 $sigOut = '';
-$result = secp256k1_ecdsa_recoverable_signature_serialize_compact($context, $sigOut, $recid, $signature);
+$result = secp256k1_ecdsa_recoverable_signature_serialize_compact($context, $signature, $sigOut, $recid);
 echo $result . PHP_EOL;
+echo unpack("H*", $sigOut)[1] . PHP_EOL;
 
 ?>
 --EXPECT--
 secp256k1_ecdsa_recoverable_signature_serialize_compact(): supplied resource is not a valid secp256k1_ecdsa_recoverable_signature resource
-0

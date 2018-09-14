@@ -18,9 +18,11 @@ $ctx = tmpfile();
 
 $sig = null;
 $result = secp256k1_ecdsa_sign($ctx, $sig, $msg32, $priv);
-echo $result . PHP_EOL;
+echo gettype($result) . PHP_EOL;
+echo ($result ? "true" : "false") . PHP_EOL;
 
 ?>
 --EXPECT--
 secp256k1_ecdsa_sign(): supplied resource is not a valid secp256k1_context resource
-0
+boolean
+false

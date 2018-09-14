@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 namespace Mdanter\Ecc\Crypto\Key;
 
@@ -41,28 +40,28 @@ class PublicKey implements PublicKeyInterface
      *
      * @var CurveFpInterface
      */
-    private $curve;
+    protected $curve;
 
     /**
      *
      * @var GeneratorPoint
      */
-    private $generator;
+    protected $generator;
 
     /**
      *
      * @var PointInterface
      */
-    private $point;
+    protected $point;
 
     /**
      *
      * @var GmpMathInterface
      */
-    private $adapter;
+    protected $adapter;
 
     /**
-     * Initialize a new PublicKey instance.
+     * Initialize a new instance.
      *
      * @param  GmpMathInterface  $adapter
      * @param  GeneratorPoint    $generator
@@ -84,20 +83,13 @@ class PublicKey implements PublicKeyInterface
         ) {
             throw new \RuntimeException("Generator point has x and y out of range.");
         }
-
-        // Sanity check. Point (x,y) values are qualified against it's
-        // generator and curve. Here we ensure the Point and Generator
-        // are the same.
-        if (!$generator->getCurve()->equals($point->getCurve())) {
-            throw new \RuntimeException("Curve for given point not in common with GeneratorPoint");
-        }
     }
 
     /**
      * {@inheritDoc}
      * @see \Mdanter\Ecc\Crypto\Key\PublicKeyInterface::getCurve()
      */
-    public function getCurve(): CurveFpInterface
+    public function getCurve()
     {
         return $this->curve;
     }
@@ -106,7 +98,7 @@ class PublicKey implements PublicKeyInterface
      * {$inheritDoc}
      * @see \Mdanter\Ecc\Crypto\Key\PublicKeyInterface::getGenerator()
      */
-    public function getGenerator(): GeneratorPoint
+    public function getGenerator()
     {
         return $this->generator;
     }
@@ -115,7 +107,7 @@ class PublicKey implements PublicKeyInterface
      * {@inheritDoc}
      * @see \Mdanter\Ecc\Crypto\Key\PublicKeyInterface::getPoint()
      */
-    public function getPoint(): PointInterface
+    public function getPoint()
     {
         return $this->point;
     }

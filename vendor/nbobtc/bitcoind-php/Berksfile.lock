@@ -1,5 +1,0 @@
-DEPENDENCIES
-  bitcoind
-
-GRAPH
-  bitcoind (0.3.0)

@@ -11,9 +11,11 @@ set_error_handler(function($code, $str) { echo $str . PHP_EOL; });
 
 $handle = tmpfile();
 $result = secp256k1_context_randomize($handle);
-echo $result . PHP_EOL;
+echo gettype($result) . PHP_EOL;
+echo ($result ? "true" : "false") . PHP_EOL;
 
 ?>
 --EXPECT--
 secp256k1_context_randomize(): supplied resource is not a valid secp256k1_context resource
-0
+boolean
+false

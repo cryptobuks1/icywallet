@@ -1,5 +1,5 @@
 --TEST--
-secp256k1_ecdsa_signature_normalize works, and is required for the given signature
+secp256k1_ecdsa_signature_normalize works
 --SKIPIF--
 <?php
 if (!extension_loaded("secp256k1")) print "skip extension not loaded";
@@ -24,7 +24,7 @@ $result = secp256k1_ecdsa_signature_serialize_der($ctx, $sigOut, $inputSig);
 echo $result . PHP_EOL;
 echo bin2hex($sigOut) . PHP_EOL;
 
-$normalSig = null;
+$normalSig = "";
 $result = secp256k1_ecdsa_signature_normalize($ctx, $normalSig, $inputSig);
 echo $result . PHP_EOL;
 
@@ -35,6 +35,10 @@ echo unpack("H*", $normalOut)[1] . PHP_EOL;
 
 $pub = null;
 $result = \secp256k1_ec_pubkey_create($ctx, $pub, $priv);
+echo $result . PHP_EOL;
+
+// todo: this *should* fail when we remove normalization from verify!
+$result = \secp256k1_ecdsa_verify($ctx, $inputSig, $msg32, $pub);
 echo $result . PHP_EOL;
 
 $result = \secp256k1_ecdsa_verify($ctx, $normalSig, $msg32, $pub);
@@ -49,5 +53,6 @@ secp256k1_ecdsa_signature
 1
 1
 30450221008a40123bd34eb158206cda02203b470615a15bd4727dbfa50a1ed367b4759c8a0220306963b01e050be405cdd68dd940c25224c4231c7250829cdd899022a450edb7
+1
 1
 1

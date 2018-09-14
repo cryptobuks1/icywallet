@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 namespace Mdanter\Ecc\Tests\Primitives;
 
@@ -37,6 +36,7 @@ class CurveFpTest extends AbstractTestCase
         $this->assertEquals(0, $curve->cmp($curve));
         $this->assertFalse($curve->equals($differentCurve));
         $this->assertTrue($curve->equals($curve));
+
     }
 
 

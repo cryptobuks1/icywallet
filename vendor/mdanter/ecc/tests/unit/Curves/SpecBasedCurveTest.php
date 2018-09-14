@@ -1,12 +1,9 @@
 <?php
-declare(strict_types=1);
 
 namespace Mdanter\Ecc\Tests\Curves;
 
 use Mdanter\Ecc\Crypto\Signature\Signature;
-use Mdanter\Ecc\Crypto\Signature\SignHasher;
 use Mdanter\Ecc\Random\RandomGeneratorFactory;
-use Mdanter\Ecc\Random\RandomNumberGeneratorInterface;
 use Mdanter\Ecc\Serializer\Point\CompressedPointSerializer;
 use Mdanter\Ecc\Serializer\Point\UncompressedPointSerializer;
 use Mdanter\Ecc\Tests\AbstractTestCase;
@@ -55,7 +52,7 @@ class SpecBasedCurveTest extends AbstractTestCase
     {
         if (!isset($this->fileCache[$fileName])) {
             if (!file_exists($fileName)) {
-                throw new \RuntimeException("Test fixture file {$fileName} does not exist");
+                throw new \PHPUnit_Runner_Exception("Test fixture file {$fileName} does not exist");
             }
 
             $this->fileCache[$fileName] = $yaml->parse(file_get_contents($fileName));
@@ -161,23 +158,8 @@ TEXT
 
         $this->assertEquals($adapter->hexDec($expectedX), $adapter->toString($publicKey->getPoint()->getX()), $name);
         $this->assertEquals($adapter->hexDec($expectedY), $adapter->toString($publicKey->getPoint()->getY()), $name);
-    }
 
-    /**
-     * @dataProvider getKeypairsTestSet()
-     * @param string $name
-     * @param GeneratorPoint $generator
-     * @param string $k - decimal private key
-     * @param $expectedX
-     * @param $expectedY
-     */
-    public function testKeyCompression($name, GeneratorPoint $generator, $k, $expectedX, $expectedY)
-    {
-        $adapter = $generator->getAdapter();
-
-        $publicKey = $generator->getPublicKeyFrom(gmp_init($expectedX, 16), gmp_init($expectedY, 16), $generator->getOrder());
-
-        $serializer = new UncompressedPointSerializer();
+        $serializer = new UncompressedPointSerializer($adapter);
         $serialized = $serializer->serialize($publicKey->getPoint());
         $parsed = $serializer->unserialize($generator->getCurve(), $serialized);
         $this->assertTrue($parsed->equals($publicKey->getPoint()));
@@ -187,6 +169,7 @@ TEXT
         $parsed = $compressingSerializer->unserialize($generator->getCurve(), $serialized);
         $this->assertTrue($parsed->equals($publicKey->getPoint()));
     }
+
 
     /**
      * @return array
@@ -344,8 +327,7 @@ TEXT
 
         $privateKey = $G->getPrivateKeyFrom(gmp_init($privKey, 16));
         $signer = new Signer($math);
-        $hasher = new SignHasher($algo);
-        $hashDec = $hasher->makeHash($message, $G);
+        $hashDec = $signer->hashData($G, $algo, $message);
 
         $hmac = RandomGeneratorFactory::getHmacRandomGenerator($privateKey, $hashDec, $algo);
         $k = $hmac->generate($G->getOrder());
@@ -420,17 +402,15 @@ TEXT
         $math = $G->getAdapter();
         $signer = new Signer($math);
         $privateKey = $G->getPrivateKeyFrom(gmp_init($privKeyHex, 10));
-        $k = gmp_init($kHex, 16);
 
         if ($hashHex != null) {
             $hash = gmp_init($hashHex, 16);
-            $sig = $signer->sign($privateKey, $hash, $k);
         } else {
-            $msg = hex2bin($msg);
-            $hasher = new SignHasher($algo);
-            $hash = $hasher->makeHash($msg, $G);
-            $sig = $signer->sign($privateKey, $hash, $k);
+            $hash = $signer->hashData($G, $algo, hex2bin($msg));
         }
+
+        $k = gmp_init($kHex, 16);
+        $sig = $signer->sign($privateKey, $hash, $k);
 
         // R and S should be correct
         $sR = $math->hexDec($eR);
@@ -514,17 +494,16 @@ TEXT
             throw new \RuntimeException("Unexpected exception parsing public key");
         }
 
-        $sig = new Signature(gmp_init($eR, 16), gmp_init($eS, 16));
         if ($hashHex != null) {
             $hash = gmp_init($hashHex, 16);
-            $verify = $signer->verify($publicKey, $sig, $hash);
         } else {
-            $hasher = new SignHasher($algo, $math);
-            $hash = $hasher->makeHash(hex2bin($msg), $G);
-            $verify = $signer->verify($publicKey, $sig, $hash);
+            $hash = $signer->hashData($G, $algo, hex2bin($msg));
         }
 
+        $sig = new Signature(gmp_init($eR, 16), gmp_init($eS, 16));
+
         // Should verify
+        $verify = $signer->verify($publicKey, $sig, $hash);
         $this->assertEquals($result, $verify);
     }
 }

@@ -14,9 +14,11 @@ $keyTweak = str_repeat("A", 32);
 
 $context = tmpfile();
 $result = secp256k1_ec_privkey_tweak_add($context, $key, $keyTweak);
-echo $result . PHP_EOL;
+echo gettype($result) . PHP_EOL;
+echo ($result ? "true" : "false") . PHP_EOL;
 
 ?>
 --EXPECT--
 secp256k1_ec_privkey_tweak_add(): supplied resource is not a valid secp256k1_context resource
-0
+boolean
+false

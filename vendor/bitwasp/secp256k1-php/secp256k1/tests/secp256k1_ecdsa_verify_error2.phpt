@@ -19,10 +19,12 @@ $result = secp256k1_ec_pubkey_create($ctx, $pubKey, $priv);
 echo $result . PHP_EOL;
 
 $result = secp256k1_ecdsa_verify($ctx, $sigIn, $msg32, $pubKey);
-echo $result . PHP_EOL;
+echo gettype($result) . PHP_EOL;
+echo ($result ? "true" : "false") . PHP_EOL;
 
 ?>
 --EXPECT--
 1
 secp256k1_ecdsa_verify(): supplied resource is not a valid secp256k1_ecdsa_signature resource
-0
+boolean
+false

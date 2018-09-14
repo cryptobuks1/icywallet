@@ -13,9 +13,11 @@ $context = tmpfile();
 $secKey = str_repeat("A", 32);
 
 $result = secp256k1_ec_seckey_verify($context, $secKey);
-echo $result . PHP_EOL;
+echo gettype($result) . PHP_EOL;
+echo ($result ? "true" : "false") . PHP_EOL;
 
 ?>
 --EXPECT--
 secp256k1_ec_seckey_verify(): supplied resource is not a valid secp256k1_context resource
-0
+boolean
+false

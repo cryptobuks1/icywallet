@@ -17,4 +17,4 @@ try {
 
 ?>
 --EXPECT--
-secp256k1_ec_privkey_negate(): Parameter 2 should be 32 bytes
+secp256k1_ec_privkey_negate(): Parameter 2 should be string

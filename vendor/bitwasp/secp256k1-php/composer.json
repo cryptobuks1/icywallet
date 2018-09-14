@@ -12,8 +12,16 @@
             "email": "afk11@users.noreply.github.com"
         }
     ],
-    "require": {
-        "php": "^7.0"
+    "autoload-dev": {
+      "psr-4": {
+        "BitWasp\\Secp256k1Tests\\": "tests/"
+      }
+    },
+    "require": {},
+    "require-dev": {
+        "squizlabs/php_codesniffer": "2.*",
+        "symfony/yaml": "^3.4",
+        "phpunit/phpunit": "^6.5"
     },
     "license": "Unlicense"
 }

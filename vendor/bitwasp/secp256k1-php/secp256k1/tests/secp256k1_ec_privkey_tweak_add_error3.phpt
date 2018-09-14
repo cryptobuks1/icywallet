@@ -13,9 +13,11 @@ $key = str_repeat("A", 32);
 $keyTweak = str_repeat("A", 32);
 
 $result = secp256k1_ec_privkey_tweak_add();
-echo $result . PHP_EOL;
+echo gettype($result) . PHP_EOL;
+echo ($result ? "true" : "false") . PHP_EOL;
 
 ?>
 --EXPECT--
 secp256k1_ec_privkey_tweak_add() expects exactly 3 parameters, 0 given
-0
+boolean
+false

@@ -15,9 +15,11 @@ $secKeyTwo = str_repeat("\x00", 31) . "\x02";
 
 $pubKey = tmpfile();
 $result = secp256k1_ec_pubkey_tweak_add($context, $pubKey, $secKeyTwo);
-echo $result . PHP_EOL;
+echo gettype($result) . PHP_EOL;
+echo ($result ? "true" : "false") . PHP_EOL;
 
 ?>
 --EXPECT--
 secp256k1_ec_pubkey_tweak_add(): supplied resource is not a valid secp256k1_pubkey resource
-0
+boolean
+false

@@ -6,21 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'phpDocumentor\\Reflection\\' => array($vendorDir . '/phpdocumentor/reflection-common/src', $vendorDir . '/phpdocumentor/reflection-docblock/src', $vendorDir . '/phpdocumentor/type-resolver/src'),
-    'lastguest\\' => array($vendorDir . '/lastguest/murmurhash/src/lastguest'),
-    'Webmozart\\Assert\\' => array($vendorDir . '/webmozart/assert/src'),
-    'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
-    'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
-    'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
-    'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
-    'Nbobtc\\' => array($vendorDir . '/nbobtc/bitcoind-php/src'),
     'Mdanter\\Ecc\\' => array($vendorDir . '/mdanter/ecc/src'),
     'FG\\' => array($vendorDir . '/fgrosse/phpasn1/lib'),
-    'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
-    'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'Composer\\Semver\\' => array($vendorDir . '/composer/semver/src'),
     'BitWasp\\Buffertools\\' => array($vendorDir . '/bitwasp/buffertools/src/Buffertools'),
-    'BitWasp\\Bitcoin\\Tests\\' => array($baseDir . '/tests'),
-    'BitWasp\\Bitcoin\\' => array($baseDir . '/src'),
-    'BitWasp\\Bech32\\' => array($vendorDir . '/bitwasp/bech32/src'),
+    'BitWasp\\Bitcoin\\' => array($vendorDir . '/bitwasp/bitcoin/src'),
 );

@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 namespace Mdanter\Ecc\Tests;
 
@@ -206,8 +205,7 @@ class NistCurveTest extends AbstractTestCase
         $publicKey = $generator->getPublicKeyFrom($Qx, $Qy);
         $signer = new Signer($math);
 
-        $gmp = $math->digestInteger($msg);
-        $actual = $signer->verify($publicKey, new Signature($R, $S), $gmp);
+        $actual = $signer->verify($publicKey, new Signature($R, $S), $math->digestInteger($msg));
 
         $this->assertEquals($expected, $actual);
     }
