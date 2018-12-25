@@ -39,7 +39,3 @@ This project is licensed under the [MIT License](LICENSE.md).
 ## Author
 
 IcyWallet is a [Neatnik](https://neatnik.net/) project, by [Adam Newbold](https://adam.lol/).
-
-## Tip Jar
-
-Any donations are sincerely appreciated, and BTC can be sent to 3NJQZrsCEb6RHt1UaXKo6P19XazwNPDvFE.
