@@ -4,8 +4,8 @@ _Accessible and secure Bitcoin cold storage_
 
 IcyWallet is a Bitcoin cold storage wallet that doesn’t require sight. It aims to be the simplest and most secure Bitcoin cold storage solution with a total emphasis on accessibility. Just plug in headphones and a keyboard, or a refreshable braille display, and get going.
 
-[<img src="https://neatnik.net/bitcoin/icywallet/icywallet_angle.jpg" width="300" height="300" alt="An IcyWallet device, angle view" title="An IcyWallet device, angle view">](https://neatnik.net/bitcoin/icywallet/icywallet_angle.jpg)
-[<img src="https://neatnik.net/bitcoin/icywallet/icywallet_overhead.jpg" width="300" height="300" alt="An IcyWallet device, top view" title="An IcyWallet device, top view">](https://neatnik.net/bitcoin/icywallet/icywallet_overhead.jpg)
+[<img src="/site/icywallet_angle.jpg" width="300" height="300" alt="An IcyWallet device, angle view" title="An IcyWallet device, angle view">](/site/icywallet_angle.jpg)
+[<img src="/site/icywallet_overhead.jpg" width="300" height="300" alt="An IcyWallet device, top view" title="An IcyWallet device, top view">](/site/icywallet_overhead.jpg)
 
 ## Features
 
