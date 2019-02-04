@@ -7,6 +7,10 @@ IcyWallet is a Bitcoin cold storage wallet that doesn’t require sight. It aims
 [<img src="/site/icywallet_angle.jpg" width="300" height="300" alt="An IcyWallet device, angle view" title="An IcyWallet device, angle view">](/site/icywallet_angle.jpg)
 [<img src="/site/icywallet_overhead.jpg" width="300" height="300" alt="An IcyWallet device, top view" title="An IcyWallet device, top view">](/site/icywallet_overhead.jpg)
 
+## Project Status
+
+As of February 3, 2019, core API work is under development. This will serve as the backbone for both the web and terminal interfaces. Watch this space for updates, or keep an eye on the [GitHub repoisotry](https://github.com/neatnik/icywallet) to view the latest in-progress code.
+
 ## Features
 
 * 100% free and open source
